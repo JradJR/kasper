@@ -3,6 +3,20 @@ let toRight = document.getElementById('to-right');
 let toLeft = document.getElementById('to-left');
 let bullets = Array.from(document.querySelectorAll('.landing .bullets li')) 
 
+
+document.querySelector('header nav .toggle-menue').onclick = function () {
+  this.classList.toggle('clicked');
+  console.log('clicked toggle mendu');
+};
+const links = document.querySelectorAll('header nav ul li a');
+links.forEach(link => {
+  link.onclick = () => {
+  document.querySelector('header nav .toggle-menue').classList.toggle('clicked');
+  console.log('toggled')
+}
+})
+
+
 let currentBackground = 2;
 
 toLeft.onclick = toLeftFunc;

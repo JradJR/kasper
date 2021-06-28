@@ -157,13 +157,18 @@ header nav .form i {
 header nav .toggle-menue {
     color: white;
     font-size: 20px;
+    cursor: pointer;
+    transition: transform .3s;
+}
+header nav .toggle-menue.clicked {
+  transform: rotate(90deg);
 }
 @media (min-width: 768px) {
     header nav .toggle-menue {
         display: none;
     }
 }
-header nav .toggle-menue:hover + ul{
+header nav .toggle-menue.clicked + ul{
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -172,7 +177,7 @@ header nav .toggle-menue:hover + ul{
     width: 100%;
     left: 0;
 }
-header nav .toggle-menue:hover + ul li a {
+header nav .toggle-menue.clicked + ul li a {
     padding: 15px;
 }
 
@@ -257,9 +262,19 @@ header nav .toggle-menue:hover + ul li a {
 }
 .landing .fa-angle-left {
     left: 30px;    
+    cursor: pointer;
+    transform: scale(1.1);
+    padding: 3px 10px;
+    background-color: var(--transparent-color);
+    border-radius: 4px;
 }
 .landing .fa-angle-right {
     right: 30px;
+    cursor: pointer;
+    transform: scale(1.1);
+    padding: 3px 10px;
+    background-color: var(--transparent-color);
+    border-radius: 4px;
 }
 .landing .bullets li.disabled {
     
@@ -277,11 +292,12 @@ header nav .toggle-menue:hover + ul li a {
     transform: translateX(-50%);
 }
 .landing .bullets li {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     border: 1px solid white;
     border-radius: 50%;
     margin-left: 10px;
+    cursor: pointer;
 }
 .landing .bullets li.active {
     background-color: var(--main-color);
@@ -359,6 +375,7 @@ header nav .toggle-menue:hover + ul li a {
 .design .image {
     text-align: center;
 }
+
 .design .image img {
     position: relative;
     bottom: -150px;
@@ -384,6 +401,17 @@ header nav .toggle-menue:hover + ul li a {
     margin-right: 20px;
     position: relative;
     top: 1px;
+}
+@media (max-width:767px) {
+  .design .image {
+    display: none;
+  }
+  .design .text {
+    padding: 25px;
+  }
+  .design .text h2 {
+    margin-bottom: 20px;
+  }
 }
 /* end design  */
 
@@ -952,6 +980,7 @@ header nav .toggle-menue:hover + ul li a {
     height: 50px;
     padding: 10px;
     flex-basis: 20%;
+    cursor: pointer;
 }
 .subscribe .container form ::placeholder {
     color: rgba(255, 255, 255, 0.637);
@@ -1095,6 +1124,9 @@ header nav .toggle-menue:hover + ul li a {
 .footer .container .content ul li {
     margin: 0 15px;
 
+}
+.footer .content i {
+  color: white;
 }
 .footer .rights span {
     font-weight: bold;
