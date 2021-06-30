@@ -14,6 +14,7 @@ html {
     box-sizing: border-box;
     margin: 0;
     padding: 0;    
+    border-radius: 2px;
 }
 body {
     font-family: 'Open Sans', sans-serif;
@@ -22,8 +23,8 @@ ul {
     list-style: none;
 }
 .container {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
     margin-left: auto;
     margin-right: auto;
 
@@ -96,7 +97,7 @@ header .container {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    min-height: 97px;
+    min-height: 80px;
 }
 header .container::after {
     content: "";
@@ -109,6 +110,11 @@ header .container::after {
 }
 header .logo img {
     height: 40px
+}
+@media (max-width: 767px) {
+  header .logo img {
+    height: 30px;
+  }
 }
 header nav {
     flex: 1;
@@ -432,12 +438,19 @@ header nav .toggle-menue.clicked + ul li a {
     color: white;
 }
 .portfolio .img-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+@media (min-width: 992px) {
+  .portfolio .img-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
 }
 .portfolio .img-container .box {
     position: relative;
     overflow: hidden;
+    box-shadow: 3px 3px 13px 0px #77777787;
 }
 @media (min-width: 768px) {
     .portfolio .img-container .box {
@@ -452,6 +465,7 @@ header nav .toggle-menue.clicked + ul li a {
 .portfolio .img-container .box img {
     max-width: 100%;
     transition: .3s;
+    display: block;
 }
 .portfolio .img-container .box:hover img {
     transform: rotate(3deg) scale(1.1);
@@ -462,7 +476,7 @@ header nav .toggle-menue.clicked + ul li a {
     bottom: -100%;
     transition: .3s;
     left: 0;
-    padding: 20px;
+    padding: 15px;
     background: white;
     width: 100%;
 }
@@ -473,9 +487,11 @@ header nav .toggle-menue.clicked + ul li a {
 .portfolio .img-container .box .caption h4 {
     font-weight: normal;
     margin-bottom: 10px;
+    font-size: 16px;
 }
 .portfolio .img-container .box .caption p {
     color: var(--main-color);
+    font-size: 12px;
 }
 .portfolio .more {
     text-decoration: none;
@@ -777,16 +793,16 @@ header nav .toggle-menue.clicked + ul li a {
     position: absolute;
     left: 0;
     top: 0;
-    transition: 2s .2s;
+    transition: 1s .2s;
 
 }
-.our-skills .box .box-content .skill .bar.is-visible::before {
+.our-skills .box .box-content.is-visible .skill .bar::before {
     width: 90%;
 }
-.our-skills .box .box-content .skill:nth-child(2) .bar.is-visible::before {
+.our-skills .box .box-content.is-visible .skill:nth-child(2) .bar::before {
     width: 85%;
 }
-.our-skills .box .box-content .skill:nth-child(3) .bar.is-visible::before {
+.our-skills .box .box-content.is-visible .skill:nth-child(3) .bar::before {
     width: 80%;
 }
 
@@ -897,6 +913,7 @@ header nav .toggle-menue.clicked + ul li a {
 }
 .pricing .content .box .bottom button a {
     text-decoration: none;
+    color: black;
 }
 
 @media (max-width: 767px) {

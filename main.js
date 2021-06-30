@@ -11,7 +11,7 @@ document.querySelector('header nav .toggle-menue').onclick = function () {
 const links = document.querySelectorAll('header nav ul li a');
 links.forEach(link => {
   link.onclick = () => {
-  document.querySelector('header nav .toggle-menue').classList.toggle('clicked');
+  document.querySelector('header nav .toggle-menue').classList.remove('clicked');
   console.log('toggled')
 }
 })
@@ -71,17 +71,16 @@ for (let i = 0; i < bullets.length; i++) {
 var scroll = window.requestAnimationFrame ||
              // IE Fallback
              function(callback){ window.setTimeout(callback, 1000/60)};
-var elementsToShow = document.querySelectorAll('.show-on-scroll'); 
-
+var elementToShow = document.querySelector('.our-skills .box .box-content'); 
+console.log(elementToShow);
 function loop() {
 
-  elementsToShow.forEach(function (element) {
-    if (isElementInViewport(element)) {
-      element.classList.add('is-visible');
+    if (isElementInViewport(elementToShow)) {
+      elementToShow.classList.add('is-visible');
     } else {
-      element.classList.remove('is-visible');
+      elementToShow.classList.remove('is-visible');
     }
-  });
+  
 
   scroll(loop);
 }
